@@ -1,0 +1,33 @@
+# Aims and objectives 
+
+The aims can be given in a list, notice that if you are not sure how the list should look then you can just put '1.' at the start of each line:
+
+1. aim 1 
+1. aim 2
+1. aim 3
+
+The research questions were in turn addressed by completing the following objectives:
+
+1. objective 1, which is completed in Chapter \@ref(intro).
+1. objective 2, which is completed in Chapter \@ref(chapter4).
+1. objective 3, which is completed in Chapter \@ref(chapter5).
+
+## Ethics 
+
+\blindtext
+
+## Outline of thesis
+
+An outline of the structure of the thesis is shown below. 
+
+Chapter \@ref(chapter3) presents the methods that I used. 
+Chapters \@ref(chapter4), \@ref(chapter5), and \@ref(chapter6) present the results. 
+
+The content of the chapters is shown in Table \@ref(tab:markdowntable)
+
+|**Chapters**  | **Summary**                   |
+|:-------------|:------------------------------|
+|Chapter 3     | **Title for chapter**. Was justice improve age article between. No projection as up preference reasonably delightful celebrated. Preserved and abilities assurance tolerably breakfast use saw. And painted letters forming far village elderly compact. Her rest west each spot his and you knew. Estate gay wooded depart six far her. Of we be have it lose gate bred. Do separate removing or expenses in. Had covered but evident chapter matters anxious. | 
+|Chapter 4     | **Title for chapter**. If wandered relation no surprise of screened doubtful. Overcame no insisted ye of trifling husbands. Might am order hours on found. Or dissimilar companions friendship impossible at diminution. Did yourself carriage learning she man its replying. Sister piqued living her you enable mrs off spirit really. Parish oppose repair is me misery. Quick may saw style after money mrs. | 
+
+Table: (\#tab:markdowntable) A markdown table caption. 

@@ -1,0 +1,66 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Results: landscape pages {#chapter6}
+
+```{r Load_results3, echo = FALSE}
+load('Results/Results.Rda')
+```
+
+- changing the margins
+- Landscape pages
+
+\newgeometry{left=1.5cm, bottom=2cm, right=1.5cm, top=2cm}
+\pagebreak
+\clearpage 
+\begin{landscape}
+
+```{r landscapefigure, results = "asis", echo=F, fig.cap='Long caption describing the figure.', fig.scap='Landscape figure: short caption for LoF', out.extra='', fig.width=14, fig.height=10}
+
+# PLOTTING THE DATA
+  cols <- c('gray40')
+  yrange <- c(-600, 1500)
+  par(mar=c(4,4,5,6), mfrow=c(2,4))
+  
+  for (country in countries){
+    # Add each of the countries 
+    plot_data <- data[data$Country == country,]
+      
+    # Get new deaths 
+      plot_data$x_prev <- rowShift(plot_data$Deaths, shiftLen = -1L)
+      plot_data$y      <- plot_data$Deaths - plot_data$x_prev
+    # Compare with previous week 
+      plot_data$y_prev <- rowShift(plot_data$y, shiftLen = -7L)
+      plot_data$change <- plot_data$y - plot_data$y_prev
+
+    # Start with an 'empty' plot 
+    plot.new()
+    plot.window(xlim = c(0,nrow(plot_data)), ylim = yrange)
+    
+    # Add horizontal lines 
+    abline(h=seq(yrange[1],yrange[2],500), col='gray92', lwd=3)
+      
+    # Plot the bars 
+    rect(c(1:nrow(plot_data))-1.2, 
+         0, 
+         c(1:nrow(plot_data)), 
+         plot_data$change, border=NA,
+         col=ifelse(plot_data$change>=0,'coral3','cornflowerblue'), lwd=0)  
+
+  # Add the axes 
+  axis(1, lwd=0, cex.axis=1)
+  axis(2, lwd=0, las=1, cex.axis=1)    
+  
+  # Add titles
+  mtext(side=3, line=1, at=2, adj=0, cex=1, country)
+  mtext(side=1, line=2, adj=1, cex=.8, 'Days since five deaths')
+  }
+
+```
+
+\end{landscape}
+\clearpage
+\pagebreak
+\restoregeometry

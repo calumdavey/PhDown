@@ -1,0 +1,116 @@
+# Results chapter {#chapter4}
+
+```{r Load_results1, echo = FALSE}
+# sometimes it might be helpful to save the results of analyses and to load them here, 
+# rather than run all the .R code every time you put the Thesis together 
+load('Results/Results.Rda')
+```
+
+Can refer to additional results in the Appendix in Chapter \@ref(Appendix1).
+
+## Figures 
+### Images from outside of R
+
+You may want to add a figure that has been created in another programme, such as from Powerpoint or copied out of a paper.
+
+![John Snow's map](Figures/1024px-Snow-cholera-map-1.jpg)
+
+To have finer control over figures from other programmes, can be useful to use the `imager` package (and I am sure there are others).
+It is also possible to have a caption for the image and another, usually shorter, caption for the list of figures (LoF).
+
+```{r fig1, echo=FALSE, fig.cap="Long caption actually describing the figure", fig.scap="Short caption for the table of figures", fig.width=8, fig.height=4, echo=F, results='hide', out.extra=''}
+suppressWarnings(suppressMessages(library(imager)))
+par(mar=c(0,0,0,0), oma=c(0,0,0,0), mfrow=c(1,2))
+plot(load.image('Figures/1024px-Snow-cholera-map-1.jpg'), axes=F)
+plot(load.image('Figures/1024px-Snow-cholera-map-1.jpg'), axes=F)
+```
+
+### Figures produced in R
+
+Of course we can add figures directly created in R, with code in a chunk:
+
+```{r UKvsGermany, echo = FALSE, fig.height=5, fig.width=8, fig.cap='Excess daily COVID-19 deaths in UK compared to Germany', fig.scap='R figure: short caption for LoF', out.extra=''}
+
+countries <- c('United Kingdom', 'Germany')
+
+# Choose colours for each country 
+cols <- c('gray40','white')
+  
+  xmax <- sum(data$Country==countries[2])-1.5
+  ymax <- 1200
+  
+  # Start with an 'empty' plot 
+  par(mar=c(4,4,5,6))
+  plot.new()
+  plot.window(xlim = c(5,xmax), ylim = c(1,ymax))
+  
+  # Add horizontal lines 
+  abline(h=seq(0,ymax,200), col='gray92', lwd=3)
+  
+  for (country in countries){
+  # Add each of the countries 
+  plot_data <- data[data$Country == country,]
+    
+  # Get the number of new deaths since last 2 weeks 
+  plot_data$x_prev <- rowShift(plot_data$Deaths)
+  plot_data$y      <- abs(plot_data$Deaths - plot_data$x_prev)
+    
+  # Plot the bars 
+  rect(c(1:nrow(plot_data))-1.1, 
+       0, 
+       c(1:nrow(plot_data)), 
+       plot_data$y, border = NA,
+       col=cols[which(countries==country)], lwd=0)  
+  #lines(c(1:nrow(plot_data)), plot_data$y,col='gray80', lwd=2.5)
+  }
+  
+  # Add the axes 
+  axis(1, lwd=0, cex.axis=.7)
+  axis(4, lwd=0, las=1, cex.axis=.7)    
+
+  legend(x='topleft', legend=countries, bty='n', fill = cols)
+  
+# Add titles
+  mtext(side=1, line=2, at=15, adj=0, cex=.8, "Days since 10 deaths")
+  mtext(side=4, line=3, at=300, adj=0, cex=.8, "Deaths per day")
+  
+```
+
+## Tables 
+
+### Knitr tables 
+
+```{r table1, echo = FALSE}
+knitr::kable(format(t1,big.mark=',', scientific=FALSE), 
+             booktabs=T, caption = 'Long caption describing the table.', caption.short='Knitr table: short caption for LoT', align=c('c','c','c','c'))
+```
+
+We can refer the this table using the code: Table \@ref(tab:table1).
+
+\pagebreak
+
+### xtable
+
+Sometimes it might be better to output the table as a Latex table:
+
+```{r table1xtable, echo = FALSE, results = 'asis'}
+suppressWarnings(suppressMessages(library(xtable)))
+
+print(xtable(
+      format(t1, big.mark=',',scientific=FALSE), 
+      align = c('l','c','c','c'), 
+      caption = c('(\\#tab:table1xtable) Long caption describing the table.', 
+                   'xtable: short caption for LoT')), 
+      comment = FALSE, booktabs = T,
+      sanitize.text.function = subheadings,
+      size="\\fontsize{12pt}{12pt}\\selectfont", 
+      include.colnames = T)
+```
+
+We can refer the this table using the code: Table \@ref(tab:table1xtable).
+Notice that the label needs to be repeated in the caption so that Latex can find it, and avoid using undercores or dashes in the names because Latex is very sensitive about it.
+
+## R in text 
+
+We can include the output of R code inline. 
+For example, we can refer to the data in the tables above when we say: Germany has experienced `r format(t1[3,2],big.mark=',')` deaths in hospitals from COVID, while the UK has had `r round(t1[6,2]/t1[3,2],0)` times as many deaths in hospital, at `r format(t1[6,2],big.mark=',')` after `r round(t1[6,1]/7,1)` weeks since first having five deaths in one day. 

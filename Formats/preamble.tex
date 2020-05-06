@@ -1,0 +1,77 @@
+% Commands loaded from Bookdown example
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+% Add line numbers each fifth line
+\usepackage{lineno}
+\linenumbers
+\modulolinenumbers[5]
+
+% Ragged right with indent
+\setlength\parindent{2em}
+\setlength{\parskip}{1em}
+\usepackage{ragged2e}
+\setlength{\RaggedRightParindent}{\parindent}
+\RaggedRight
+
+% Simplify page
+\usepackage[none]{hyphenat}
+\pagestyle{plain}
+\raggedbottom
+
+% Landscape command for landscaped figures and tables
+\usepackage{lscape}
+\newcommand{\blandscape}{\begin{landscape}}
+\newcommand{\elandscape}{\end{landscape}}
+\usepackage{caption}
+\usepackage{float}
+\floatplacement{figure}{H}
+\floatplacement{table}{H}
+
+% Allow multiple lines in table cells
+\usepackage{makecell}
+\renewcommand\theadfont{\bfseries}
+
+% Set spacing to one and a half
+\usepackage{setspace}
+\doublespacing
+%\singlespacing
+
+% Roman numerals
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+% Set the font
+\usepackage{fontspec}
+\usepackage{mathpazo}
+\setmainfont
+     [ BoldFont       = texgyrepagella-bold.otf ,
+       ItalicFont     = texgyrepagella-italic.otf ,
+      BoldItalicFont  = texgyrepagella-bolditalic.otf ]
+     {texgyrepagella-regular.otf}
+
+% Highlighter for stuff to complete
+\usepackage{color, soul}
+
+% Add pdfs of cover sheets
+\usepackage{pdfpages}
+
+% Add LSHTM logo to front page
+\usepackage{titling}
+\pretitle{\begin{center}
+\includegraphics[width=2.5in]{logo.jpg}\LARGE\\}
+\vspace{3in}
+\posttitle{\end{center}}
+
+
+% Add dummy text 
+\usepackage[english]{babel}
+\usepackage{blindtext}

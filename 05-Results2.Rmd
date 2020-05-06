@@ -1,0 +1,74 @@
+# More results: complex tables {#chapter5}
+
+```{r Load_results2, echo = FALSE}
+load('Results/Results.Rda')
+```
+
+## Formatting row names 
+
+```{r table1xtable2, echo = FALSE, results = 'asis'}
+suppressWarnings(suppressMessages(library(xtable)))
+
+# Add rows where headings will go
+t <- as.data.frame(t1)
+  newrow <- rep('', times = length(t))
+  inserts <- c(1,3,9)
+  t <- insertRow(t, newrow, inserts)
+
+# Format rownames and add the titele
+  r <- as.data.frame(rownames(t)[1:(nrow(t)-length(inserts))])
+  colnames(r) <- 'V'
+  r$V <- as.character(r$V)
+  
+  # Intent the countries 
+  r$V <- paste0('IND',as.character(r$V))
+  
+  titles <- c('BOLDAsia', 'BOLDEurope', 'BOLDNorth America')
+  for (i in 1:length(inserts)){
+    r <- insertRow(r, titles[i], inserts[i])
+  }
+  rownames(t) <- r[,1]
+
+# Add some spaces
+  for (i in inserts){
+    rownames(t)[i-1] <- paste0('SPACE', rownames(t)[i-1])
+  }
+
+print(xtable(
+      format(t, big.mark=',',scientific=FALSE), 
+      align = c('l','c','c','c'), 
+      caption = c('(\\#tab:table1xtable2) Long caption describing the table.', 
+                   'xtable with row headings: short caption for LoT')), 
+      comment = FALSE, booktabs = T, 
+      sanitize.text.function = subheadings,
+      size="\\fontsize{12pt}{12pt}\\selectfont", 
+      include.colnames = T)
+```
+
+\pagebreak
+
+## More complicated headers with 'addtorow'
+
+```{r table1xtable3, results = 'asis', echo=F}
+addtorow <- list()
+addtorow$pos <- list(0)
+addtorow$command <- paste0('\\multicolumn{4}{c}{\\textbf{Deaths in selected countries}} \\\\
+                           & & & \\\\ 
+                           & & & \\\\ 
+                           & \\multicolumn{2}{c}{Total:} & \\\\
+                           \\cmidrule[0.02em](l{3em}r{2.5em}){1-4}
+                           & days & deaths & Median deaths per day \\\\')
+
+print(xtable(
+      format(t, big.mark=',',scientific=FALSE), 
+      align = c('l','c','c','c'), 
+      caption = c('(\\#tab:table1xtable3) Long caption describing the table.', 
+                   'xtable with row headings: short caption for LoT')), 
+      comment = FALSE, booktabs = T, 
+      sanitize.text.function = subheadings, 
+      add.to.row = addtorow,
+      size="\\fontsize{12pt}{12pt}\\selectfont", 
+      include.colnames = FALSE)
+
+```
+
