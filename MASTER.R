@@ -3,10 +3,9 @@
 # Install bookdown if not already 
   if(!require(bookdown)) install.packages('bookdown')
   
-# Install Latex
-  # Mac 
-    # tinytex::install_tinytex()
-  # Windows 
+# Install Latex if not already 
+  if(!require(tinytex)) install.packages('tinytex')
+  if(is.na(tinytex::tinytex_root())) tinytex::install_tinytex()
 
 # Record and set the current working directory
   wd <- dirname(rstudioapi::getActiveDocumentContext()$path)
@@ -23,5 +22,5 @@
   bookdown::render_book('index.rmd', new_session = TRUE)
 
 # Render select chapters
-  bookdown::preview_chapter('02-Aims_and_objectives.Rmd')
+  #bookdown::preview_chapter('02-Aims_and_objectives.Rmd')
 
