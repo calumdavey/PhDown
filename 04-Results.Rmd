@@ -82,10 +82,11 @@ cols <- c('gray40','white')
 
 ```{r table1, echo = FALSE}
 knitr::kable(format(t1,big.mark=',', scientific=FALSE), 
-             booktabs=T, caption = 'Long caption describing the table.', caption.short='Knitr table: short caption for LoT', align=c('c','c','c','c'))
+             booktabs=T, caption = 'Long caption describing the table.', 
+             caption.short='Knitr table: short caption for LoT', align=c('c','c','c','c'))
 ```
 
-We can refer the this table using the code: Table \@ref(tab:table1).
+We can refer the this table using the code: Table \@ref(tab:table1). 
 
 \pagebreak
 

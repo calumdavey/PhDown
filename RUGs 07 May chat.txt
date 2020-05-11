@@ -1,0 +1,77 @@
+12:46:22	 From Isabel Fletcher : Is this being recorded?
+12:46:35	 From Antonio Gasparrini : it looks like it is
+12:46:44	 From Isabel Fletcher : Thanks!
+12:51:55	 From Andrea Mazzella : How do you get headers to be colour-coded in blue?
+12:57:19	 From Andrea Mazzella : Oh yup thanks my theme wasn't doing it
+12:57:20	 From Andrea Mazzella : thanks
+13:01:26	 From Maarten Vanhaverbeke : Does anyone know where this recording will be available at afterwards?
+13:02:33	 From Severine : What if one author has several publications the same year?
+13:02:56	 From Severine : ok great, thanks
+13:09:10	 From UoL_1036620 : Can you spell check in R markdown?
+13:09:24	 From UoL_1036620 : Thanks
+13:09:37	 From Lauren Hashiguchi : To execute the chunk within 04-Results, you loaded the data at the start of the RMarkdown file?
+13:10:31	 From martina : Why wouldn’t you load the library for the images with allthe rest? Any particular reason?
+13:10:32	 From Lauren Hashiguchi : Ah okay just answered my question about how you created the figures!
+13:11:29	 From martina : Perfect - TXs
+13:13:58	 From Will Leung : Just wondering how you would share versions with collaborators/supervisors for their comments?
+13:14:20	 From Will Leung : will do, thanks
+13:16:02	 From Andrea Mazzella : Does kable() only work with tables that are data.frames? So many functions create tables that are not in data.frame format 
+13:18:02	 From Eleanor Rees : If you already know how to create latex tables can you put them in directly?
+13:18:20	 From Eleanor Rees : Ok thanks!
+13:27:46	 From martina : Is it possible to use kableExtra for tables?
+13:28:31	 From martina : txs
+13:33:31	 From Pablo Ruiz Cuenca : https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/ This blogpost has some ideas on this, under "File Sharing" 
+13:36:54	 From Julian Matthewman : Would you recommend this for a MSC summer project?
+13:36:58	 From martina : Could you quickly repeat the reason for loading the results in each chapter? Am I correct to understand that all results need to be saved as objects? 
+
+Also - any reason why you would want the line numbers?
+13:37:17	 From Rebecca Clark : Do you need to have a yaml at the beginning for the preview_chapter?
+13:38:17	 From Pierre Masselot : Is RStudio mandatory for this approach or could you also implement it with the basic R GUI (hypothetically)?
+13:38:17	 From Andrea Mazzella : some functions like glm() for example don't output tidy data.frame s / tibbles / matrices. How do you get their output into data.frames before you can use them for kable()?
+13:39:23	 From Pablo Ruiz Cuenca : Do the line numbers refer to the lines of code? 
+13:39:24	 From Amy Macdougall : The broom package is good for this, the tidy() functions take glm etc and produce a nice tibble
+13:39:52	 From Naomi Waterlow : Can you do a word count with R markdown?
+13:40:28	 From Julian Matthewman : Any ideas on using packages such as gt to create (publication ready) tables?
+13:41:30	 From Andrei : I use emacs/ESS and everything works basically the same as rstudio (but I haven't done all this stuff before) - emacs has special modes for R, markdown, LaTeX etc
+13:42:04	 From Antonio Gasparrini : is the material in the Formats and other folders read automatically when rendering? I don't see any point where you directly call preamble.tex
+13:43:24	 From Andrei : wordcount - I used to use texcount.pl (if I remember correctly_ - takes word count from LaTeX
+13:43:27	 From Amy Macdougall : There is an extension to bookdown which gives you a word count - not sure how accurate it is!
+13:43:50	 From Orlagh : you can also open pdfs in word and use the wordcount there
+13:43:52	 From Andrei : texcount takes the wordcount from the LaTeX file: it's pretty accurate and gives you breakdowns by section etc
+13:45:21	 From Antonio Gasparrini : cool
+13:47:18	 From Naomi Waterlow : What are the main benefits of using R markdown instead of laTex?
+13:48:27	 From Antonio Gasparrini : can you please explain again the bit about hyperlinks and references to sections/tables/figures/chapters? I saw that you used \@ref() and inside tab: before referring to a table labelled as 'table1'. What about chapters etc?
+13:49:09	 From Andrei : LaTeX is extremely versatile and you can probably do a lot more in it than you can doing it first in rmarkdown… .e.g. you can do figures and all kinds of stuff. BUT - it's something else to learn!!
+13:49:50	 From Pablo Ruiz Cuenca : How easy/difficult is it to learn LaTeX if you know R ? 
+13:51:16	 From Amy Macdougall : There is a summary of cross referencing here: https://bookdown.org/yihui/bookdown/cross-references.html
+13:51:42	 From Antonio Gasparrini : have a look at https://en.wikibooks.org/wiki/LaTeX
+13:53:06	 From Antonio Gasparrini : it's a wikibook that provides a very good overview, starting from the basics but also covering more complex issues, such as tables and others
+13:53:56	 From Pablo Ruiz Cuenca : Great, thank you!
+13:54:06	 From Andrei : I am the person who might disagree! 
+13:54:11	 From Andrei : Perhaps I could say something? 
+13:54:55	 From Andrei : Essentially, they have different purposes, so Calum is right, possibly better to stay away from it if you just want to make a PhD and do/present stats
+13:55:16	 From Andrei : BUT - LaTeX can do a lot more... e.g. presentations, drawing pictures, all sorts
+13:56:26	 From Amy Macdougall : You can always add LaTeX chunks into markdown if you want to! 
+13:57:30	 From Antonio Gasparrini : can you include entire parts from entire tex files?
+13:57:32	 From Amy Macdougall : Thank you Calum!
+13:57:34	 From Andrei : (to respond to Calum first - you can save the chat log! Please do, and I can add/give some more info in email to you after)
+13:57:41	 From Andrea Mazzella : Thanks a lot Calum, that was super interesting!
+13:57:45	 From Pablo Ruiz Cuenca : I'm curious to know when LaTeX is useful? 
+13:57:55	 From Hugo : Thanks Calum !
+13:57:58	 From Julian Matthewman : Thanks so much!
+13:59:27	 From Andrei : bottom right corner - three dots.... click there to save!
+14:00:05	 From Andrei : re LaTeX -- not all books/presentations etc contain statistics etc! So LaTeX can be very good for that etc.
+14:00:17	 From Andrei : E.g. I'm an epidemiologist rather than a statistician
+14:00:25	 From Andrei : so not everything has numbers in it
+14:00:41	 From Andrei : thank you Calum!! :-)
+14:00:46	 From Beth Savagar : Thank you Calum!
+14:00:48	 From Isabel Fletcher : Thank you very much Calum!
+14:00:50	 From martina : Many thanks - very helpful!
+14:00:54	 From Ana Bonell : Thank you, this was great!
+14:00:55	 From Pablo Ruiz Cuenca : Thank you Calum! 
+14:00:59	 From Orlagh : Thank you!
+14:01:13	 From Pierre Masselot : Agreed, thank you so much
+14:01:14	 From UoL_1036620 : Thank you, that was very useful!
+14:01:21	 From Lauren Hashiguchi : Yes, thank you so much! Really appreciate that you’ve taken so much time to prepare a resource like this for everyone.
+14:01:51	 From Andrei : Make it open! Share it beyond the LSHTM - some of us are from outside ;-)
+14:01:52	 From Naomi Waterlow : Thank you!!!

@@ -22,5 +22,5 @@
   bookdown::render_book('index.rmd', new_session = TRUE)
 
 # Render select chapters
-  #bookdown::preview_chapter('02-Aims_and_objectives.Rmd')
+  bookdown::preview_chapter('02-Aims_and_objectives.Rmd')
 

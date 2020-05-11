@@ -38,14 +38,14 @@ Of course we can add figures directly created in R, with code in a chunk:
 \toprule
   & Total days & Total deaths & Median deaths per day\\
 \midrule
-China & 105 & 4,637 & 3,193\\
-France & 62 & 25,537 & 7,834\\
-Germany & 54 & 6,993 & 2,478\\
-Italy & 72 & 29,315 & 12,010\\
-Spain & 61 & 25,613 & 12,641\\
+China & 106 & 4,637 & 3,198\\
+France & 63 & 25,812 & 8,093\\
+Germany & 55 & 7,275 & 2,607\\
+Italy & 73 & 29,684 & 12,428\\
+Spain & 62 & 25,857 & 12,991\\
 \addlinespace
-United Kingdom & 57 & 29,501 & 7,483\\
-US & 65 & 71,064 & 9,246\\
+United Kingdom & 58 & 30,150 & 8,001\\
+US & 66 & 73,431 & 10,050\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -65,13 +65,13 @@ Sometimes it might be better to output the table as a Latex table:
   \toprule
  & Total days & Total deaths & Median deaths per day \\ 
   \midrule
-China & 105 &  4,637 &  3,193 \\ 
-  France &  62 & 25,537 &  7,834 \\ 
-  Germany &  54 &  6,993 &  2,478 \\ 
-  Italy &  72 & 29,315 & 12,010 \\ 
-  Spain &  61 & 25,613 & 12,641 \\ 
-  United Kingdom &  57 & 29,501 &  7,483 \\ 
-  US &  65 & 71,064 &  9,246 \\ 
+China & 106 &  4,637 &  3,198 \\ 
+  France &  63 & 25,812 &  8,093 \\ 
+  Germany &  55 &  7,275 &  2,607 \\ 
+  Italy &  73 & 29,684 & 12,428 \\ 
+  Spain &  62 & 25,857 & 12,991 \\ 
+  United Kingdom &  58 & 30,150 &  8,001 \\ 
+  US &  66 & 73,431 & 10,050 \\ 
    \bottomrule
 \end{tabular}
 \endgroup
@@ -84,4 +84,4 @@ Notice that the label needs to be repeated in the caption so that Latex can find
 ## R in text 
 
 We can include the output of R code inline. 
-For example, we can refer to the data in the tables above when we say: Germany has experienced 6,993 deaths in hospitals from COVID, while the UK has had 4 times as many deaths in hospital, at 29,501 after 8.1 weeks since first having five deaths in one day. 
+For example, we can refer to the data in the tables above when we say: Germany has experienced 7,275 deaths in hospitals from COVID, while the UK has had 4 times as many deaths in hospital, at 30,150 after 8.3 weeks since first having five deaths in one day. 

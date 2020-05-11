@@ -1,6 +1,6 @@
 # Introduction {#intro}
 
-It is always best to start a new line when you start each sentence.
+It is always best to start a new line when you start each sentence. 
 This will mean that when you are looking for the line when proofing the pdf it is **much** easier to find.
 
 (You need to leave a space to actually start a new paragraph)
